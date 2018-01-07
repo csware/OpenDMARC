@@ -93,7 +93,7 @@ foreach my $i (@ARGV) {
 	    my $npart = $ent->parts;
 	    for my $n (0..($npart-1)) {
 		my $part = $ent->parts($n);
-		if(lc $part->mime_type eq "application/gzip") {
+		if(lc $part->mime_type eq "application/gzip" || ($part->bodyhandle && $part->bodyhandle->path =~ /\.gz$/)) {
 		    $zip = $part->bodyhandle;
 		    $isgzip = 1;
 		    last;
