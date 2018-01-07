@@ -107,6 +107,8 @@ foreach my $i (@ARGV) {
 		}
 	    }
 	    die "no zip" unless $zip;
+	} elsif(lc $mtype eq "application/gzip") {
+	    $isgzip = 1;
 	} elsif(lc $mtype ne "application/zip") {
 	    print "don't understand $mtype\n";
 	    next;
